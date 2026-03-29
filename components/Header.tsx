@@ -51,7 +51,7 @@ export default function Header() {
             <div className="hidden md:block w-px h-6 bg-retro-dark/10 dark:bg-white/10" />
 
             <a 
-              href="https://luma.com/val6dfyg" 
+              href="https://luma.com/sa1r3xeh" 
               target="_blank" 
               rel="noopener noreferrer"
               // AJUSTE 3: px-3 no mobile (mais apertado) e text-[10px]
