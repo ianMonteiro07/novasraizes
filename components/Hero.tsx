@@ -74,7 +74,7 @@ export default function Hero() {
         {/* DATA */}
         <div className="mt-10 md:mt-12 flex items-center gap-4 md:gap-6 text-retro-dark dark:text-white transition-colors">
            <div className="font-retro text-3xl md:text-5xl dark:text-trap-neon-yellow">
-             01/03
+             19/04
            </div>
            <div className="h-10 md:h-12 w-1 bg-retro-dark dark:bg-white"></div>
            <div className="text-left">
