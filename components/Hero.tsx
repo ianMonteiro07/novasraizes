@@ -1,88 +1,79 @@
 "use client";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 
 export default function Hero() {
-  const { scrollY } = useScroll();
-  const rotateSun = useTransform(scrollY, [0, 500], [0, 45]);
-  const yText = useTransform(scrollY, [0, 300], [0, 100]);
-
   return (
-    // AQUI: Mudei px-4 para px-16 (mobile) e px-40 (desktop) para o texto não bater na borda
-    <section className="relative w-full min-h-screen flex flex-col items-center justify-center overflow-hidden bg-retro-cream dark:bg-trap-bg transition-colors duration-700 pt-28 pb-10 px-16 md:px-40">
+    <section className="relative w-full min-h-[100svh] flex flex-col items-center justify-center overflow-hidden bg-nr-purple dark:bg-nr-dark transition-colors duration-700 pt-36 pb-16 px-4 md:px-16 border-b-8 border-nr-dark dark:border-nr-cream">
       
-      {/* SOL */}
+      {/* Selo Vol 5 - Afastado para não colar no texto principal no celular */}
       <motion.div 
-        style={{ rotate: rotateSun }}
-        // Diminui um pouco o sol no mobile (260px) para caber na moldura
-        className="absolute top-24 md:top-10 z-0 opacity-20 dark:opacity-40 w-[260px] h-[260px] md:w-[600px] md:h-[600px]"
+        animate={{ rotate: [0, 8, 0, -8, 0] }}
+        transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
+        className="absolute top-28 right-2 md:top-32 md:right-24 lg:right-40 z-20 w-16 h-16 md:w-28 md:h-28 bg-nr-yellow rounded-full flex items-center justify-center border-2 md:border-4 border-nr-dark dark:border-nr-cream shadow-[3px_3px_0px_#1A1A1A] dark:shadow-[4px_4px_0px_#F4ECD8]"
       >
-        <svg viewBox="0 0 200 200" className="w-full h-full fill-retro-orange dark:fill-trap-purple-deep animate-spin-slow dark:drop-shadow-[0_0_30px_rgba(142,68,173,0.5)] transition-colors duration-500">
-           <circle cx="100" cy="100" r="40" />
-           <path d="M100 0 L115 50 L150 20 L135 70 L190 60 L150 100 L190 140 L135 130 L150 180 L115 150 L100 200 L85 150 L50 180 L65 130 L10 140 L50 100 L10 60 L65 70 L50 20 L85 50 Z" />
-        </svg>
+        <span className="font-retro text-xl md:text-4xl text-nr-dark leading-none text-center pt-1">vol<br/>5</span>
       </motion.div>
 
-      {/* CONTEÚDO */}
-      <div className="relative z-10 text-center flex flex-col items-center w-full max-w-4xl">
+      <div className="relative z-10 text-center flex flex-col items-center w-full max-w-5xl mt-6">
         
-        {/* TÍTULO */}
-        <div className="relative leading-[0.8] mt-4">
+        {/* TÍTULO - Tamanhos bem mais compactos no celular */}
+        <div className="relative leading-[0.85] flex flex-col items-center z-30">
           <motion.h1 
-            style={{ y: yText }}
-            initial={{ scale: 0.8, opacity: 0 }}
+            initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 0.8, type: "spring" }}
-            // Ajustei o tamanho da fonte para 18vw para não vazar nas laterais grossas
-            className="font-retro text-[18vw] md:text-[14vw] text-retro-green dark:text-trap-neon-green drop-shadow-[3px_3px_0px_rgba(241,196,15,1)] md:drop-shadow-[4px_4px_0px_rgba(241,196,15,1)] dark:drop-shadow-[0_0_10px_rgba(57,255,20,0.6)] transition-all duration-500"
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="font-retro text-[4.5rem] sm:text-7xl md:text-[8rem] lg:text-[11rem] text-nr-cream drop-shadow-[3px_3px_0px_#1A1A1A] md:drop-shadow-[6px_6px_0px_#1A1A1A] uppercase tracking-tight"
           >
             Novas
           </motion.h1>
-          
           <motion.h1 
-            style={{ y: yText }}
-            initial={{ scale: 0.8, opacity: 0 }}
+            initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.1, type: "spring" }}
-            className="font-retro text-[18vw] md:text-[14vw] text-retro-green dark:text-trap-neon-pink drop-shadow-[3px_3px_0px_rgba(241,196,15,1)] md:drop-shadow-[4px_4px_0px_rgba(241,196,15,1)] dark:drop-shadow-[0_0_10px_rgba(255,0,255,0.6)] transition-all duration-500"
+            transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
+            className="font-retro text-[4.5rem] sm:text-7xl md:text-[8rem] lg:text-[11rem] text-nr-dark dark:text-nr-yellow drop-shadow-[3px_3px_0px_#F4ECD8] dark:drop-shadow-[3px_3px_0px_#1A1A1A] md:drop-shadow-[6px_6px_0px_#F4ECD8] uppercase tracking-tight -mt-1 md:-mt-6"
           >
             Raízes
           </motion.h1>
         </div>
 
-        {/* LISTA */}
+        {/* INFORMAÇÕES DO LOTE */}
         <motion.div 
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.5 }}
-          className="mt-8 md:mt-12 flex flex-col gap-3 w-full max-w-md"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3 }}
+          className="mt-8 md:mt-12 bg-nr-cream dark:bg-nr-dark border-4 border-nr-dark dark:border-nr-cream p-4 md:p-8 rounded-2xl shadow-[4px_4px_0px_#1A1A1A] dark:shadow-[4px_4px_0px_#F4ECD8] rotate-1 w-[90%] md:w-full max-w-xl z-20 transition-colors duration-500"
         >
-          {/* Textos menores no mobile (text-[10px]) para caber nas caixas */}
-          <div className="bg-retro-yellow dark:bg-black dark:border dark:border-trap-neon-green text-retro-dark dark:text-trap-neon-green font-sans font-extrabold text-[10px] md:text-base py-3 px-2 rounded-lg -rotate-1 shadow-sm uppercase dark:shadow-[0_0_10px_rgba(57,255,20,0.3)] transition-colors">
-            Música ao Vivo • MPB • DJ e Trap
+          <div className="border-b-4 border-nr-dark dark:border-nr-cream pb-3 md:pb-4 mb-3 md:mb-4 text-center">
+             <h2 className="font-sans font-black text-xl md:text-4xl uppercase tracking-tighter text-nr-dark dark:text-nr-cream">
+               Segundo Lote: R$ 25
+             </h2>
           </div>
-          <div className="bg-retro-orange dark:bg-black dark:border dark:border-trap-neon-pink text-retro-cream dark:text-trap-neon-pink font-sans font-extrabold text-[10px] md:text-base py-3 px-2 rounded-lg rotate-1 shadow-sm uppercase dark:shadow-[0_0_10px_rgba(255,0,255,0.3)] transition-colors">
-            Flash Tattoo & Piercings
+          
+          <div className="flex flex-col md:flex-row justify-center md:justify-between items-center gap-1 md:gap-4 font-sans font-bold text-sm md:text-xl text-nr-dark dark:text-nr-cream uppercase">
+             <div className="flex items-center gap-2">
+                <span>Dia:</span>
+                <span className="font-retro tracking-widest text-base md:text-xl pt-1">22 de Agosto</span>
+             </div>
+             <div className="hidden md:block w-1 h-6 bg-nr-dark dark:bg-nr-cream"></div>
+             <div>15H - 23H</div>
           </div>
-          <div className="bg-retro-purple dark:bg-black dark:border dark:border-trap-neon-cyan text-retro-cream dark:text-trap-neon-cyan font-sans font-extrabold text-[10px] md:text-base py-3 px-2 rounded-lg -rotate-1 shadow-sm uppercase dark:shadow-[0_0_10px_rgba(0,255,255,0.3)] transition-colors">
-            Exposição e Feira de Arte
-          </div>
-          <div className="bg-retro-green dark:bg-black dark:border dark:border-trap-neon-green text-retro-cream dark:text-trap-neon-cyan font-sans font-extrabold text-[10px] md:text-base py-3 px-2 rounded-lg rotate-1 shadow-sm uppercase dark:shadow-[0_0_10px_rgba(0,255,255,0.3)] transition-colors">
-            Brechós 
+          
+          <div className="mt-3 pt-3 md:mt-4 md:pt-4 border-t-4 border-nr-dark dark:border-nr-cream text-center font-sans font-black text-sm md:text-xl uppercase text-nr-green dark:text-nr-yellow">
+             Lugar: Chuck Bar, Jatiúca
           </div>
         </motion.div>
 
-        {/* DATA */}
-        <div className="mt-10 md:mt-12 flex items-center gap-4 md:gap-6 text-retro-dark dark:text-white transition-colors">
-           <div className="font-retro text-3xl md:text-5xl dark:text-trap-neon-yellow">
-             19/04
-           </div>
-           <div className="h-10 md:h-12 w-1 bg-retro-dark dark:bg-white"></div>
-           <div className="text-left">
-             <p className="font-sans font-black uppercase text-lg md:text-xl leading-none">Chuck Bar</p>
-             <p className="font-sans uppercase text-xs md:text-sm opacity-80">(Jatiúca)</p>
-           </div>
-        </div>
-
+        {/* BOTÃO LINK LUMA */}
+        <motion.a 
+          whileHover={{ scale: 1.05, rotate: 0 }}
+          whileTap={{ scale: 0.95 }}
+          href="https://luma.com/dakipt2s"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-8 md:mt-12 mb-4 bg-nr-green dark:bg-nr-orange text-nr-cream font-retro text-base md:text-3xl px-6 py-4 rounded-xl border-4 border-nr-dark dark:border-nr-cream shadow-[4px_4px_0px_#1A1A1A] dark:shadow-[6px_6px_0px_#F4ECD8] -rotate-2 inline-block z-20 transition-colors duration-500"
+        >
+          Garanta Seu Ingresso!!
+        </motion.a>
       </div>
     </section>
   );

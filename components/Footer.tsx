@@ -1,62 +1,53 @@
 export default function Footer() {
   return (
-    // AJUSTE 1: Mudei px-12 para px-6 no mobile para ganhar espaço lateral
-    <footer id="contato" className="bg-retro-green dark:bg-black text-retro-cream dark:text-gray-200 py-20 px-6 md:px-32 border-t-8 border-retro-orange dark:border-trap-neon-pink relative z-40 transition-colors duration-500">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between gap-12">
+    <footer id="ingressos" className="bg-nr-dark text-nr-cream py-16 md:py-20 px-8 md:px-32 relative z-40 transition-colors duration-500">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between gap-12 md:gap-16">
         
-        {/* Marca / Contato Direto */}
-        <div className="space-y-4 md:w-1/2">
-          <h2 className="font-retro text-5xl md:text-7xl text-retro-yellow dark:text-trap-neon-green drop-shadow-md">
-            Novas Raízes
+        {/* Marca / Infos do Evento */}
+        <div className="space-y-4 md:space-y-6 md:w-1/2 text-center md:text-left">
+          <h2 className="font-retro text-5xl md:text-8xl text-nr-yellow">
+            Novas<br className="hidden md:block"/> Raízes
           </h2>
-          <p className="opacity-80 text-lg font-sans max-w-sm font-medium">
+          <p className="font-sans font-bold text-sm md:text-xl uppercase tracking-widest opacity-90 max-w-md mx-auto md:mx-0">
             Um movimento de cultura, arte e vida orgânica.
           </p>
-          
-          {/* E-mail */}
-          <div className="pt-6">
-            <p className="text-sm uppercase tracking-widest opacity-60 mb-2">Fale com a gente</p>
-            {/* AJUSTE 2 e 3: text-lg no mobile, break-all para não cortar */}
-            <a 
-              href="mailto:novasraizes2025@gmail.com" 
-              className="text-lg md:text-2xl font-bold border-b-2 border-retro-orange dark:border-trap-neon-pink hover:text-retro-yellow dark:hover:text-trap-neon-cyan transition-colors break-all"
-            >
-              novasraizes2025@gmail.com
-            </a>
-          </div>
         </div>
 
-        {/* Links */}
-        <div className="flex flex-col md:flex-row gap-12 md:w-1/2 md:justify-end">
+        {/* Compra e Contato */}
+        <div className="flex flex-col gap-8 md:w-1/2 md:justify-end items-center md:items-end">
           
-          {/* Navegação Interna */}
-          <div className="flex flex-col gap-4">
-            <h4 className="font-retro text-2xl text-retro-orange dark:text-trap-neon-pink">Navegação</h4>
-            <a href="#manifesto" className="hover:text-retro-yellow dark:hover:text-trap-neon-green transition-colors font-bold uppercase tracking-widest text-sm">O Evento</a>
-            <a href="#galeria" className="hover:text-retro-yellow dark:hover:text-trap-neon-green transition-colors font-bold uppercase tracking-widest text-sm">Galeria</a>
-            <a href="https://luma.com/val6dfyg" target="_blank" rel="noopener noreferrer" className="hover:text-retro-yellow dark:hover:text-trap-neon-green transition-colors font-bold uppercase tracking-widest text-sm">Ingressos</a>
-          </div>
-
-          {/* Redes Sociais */}
-          <div className="flex flex-col gap-4">
-            <h4 className="font-retro text-2xl text-retro-orange dark:text-trap-neon-pink">Social</h4>
-            <a href="https://instagram.com/novasraizes_" target="_blank" rel="noopener noreferrer" className="hover:text-retro-yellow dark:hover:text-trap-neon-green transition-colors font-bold uppercase tracking-widest text-sm">
-              Instagram
+          <div className="bg-nr-purple border-4 border-nr-cream p-5 md:p-8 rounded-xl shadow-[6px_6px_0px_#F4ECD8] rotate-1 w-full max-w-sm text-center md:text-left">
+            <h4 className="font-retro text-2xl md:text-3xl text-nr-yellow mb-4">Ingressos (2º Lote)</h4>
+            
+            <a 
+              href="https://luma.com/dakipt2s" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block w-full text-center bg-nr-cream text-nr-dark font-sans font-black text-lg md:text-xl uppercase py-3 border-4 border-nr-dark shadow-[4px_4px_0px_#1A1A1A] hover:bg-nr-yellow transition-colors mb-4 -rotate-1"
+            >
+              Comprar no Luma
             </a>
             
-            <a href="#" className="hover:text-retro-yellow dark:hover:text-trap-neon-green transition-colors font-bold uppercase tracking-widest text-sm">
-              TikTok
-            </a>
+            <p className="font-sans font-bold uppercase text-xs opacity-90 mt-4">
+              Dúvidas? Fale com a gente na DM ou via PIX:<br/>
+              <span className="text-sm md:text-base text-nr-cream break-all mt-1 block">novasraizes2025@gmail.com</span>
+            </p>
+          </div>
+
+          {/* Navegação Rápida */}
+          <div className="flex flex-wrap justify-center gap-6 md:gap-8">
+            <a href="#flora" className="font-sans font-black uppercase text-sm md:text-lg hover:text-nr-orange transition-colors">Flora</a>
+            <a href="#galeria" className="font-sans font-black uppercase text-sm md:text-lg hover:text-nr-orange transition-colors">Galeria</a>
+            <a href="https://instagram.com/novasraizes_" target="_blank" rel="noopener noreferrer" className="font-sans font-black uppercase text-sm md:text-lg hover:text-nr-orange transition-colors">Instagram</a>
           </div>
         </div>
       </div>
 
-      {/* Copyright */}
-      <div className="max-w-7xl mx-auto mt-20 pt-8 border-t border-retro-cream/20 flex flex-col md:flex-row justify-between items-center text-xs opacity-60 uppercase tracking-widest gap-4 md:gap-0">
-        <p>© 2026 Novas Raízes.</p>
-        <div className="flex gap-4 text-center md:text-right">
-           <p>Maceió • AL</p>
-           <p>Design by Ian Monteiro</p>
+      <div className="max-w-7xl mx-auto mt-16 pt-8 border-t-4 border-nr-cream/20 flex flex-col md:flex-row justify-between items-center text-[10px] md:text-sm font-bold uppercase tracking-widest gap-4 md:gap-0 text-center">
+        <p>© 2026 NOVAS RAÍZES VOL. 5</p>
+        <div className="flex flex-col md:flex-row gap-2 md:gap-6">
+           <p>MACEIÓ • AL</p>
+           <p>DEV BY IAN MONTEIRO</p>
         </div>
       </div>
     </footer>
